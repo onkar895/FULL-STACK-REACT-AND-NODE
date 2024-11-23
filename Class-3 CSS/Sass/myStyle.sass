@@ -1,0 +1,53 @@
+// Variables: 
+$color1: green
+$font: Ubuntu
+$primary-color: #fff
+
+
+// Mixins:
+// Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist. 
+// A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. 
+// It helps keep your Sass very DRY. You can even pass in values to make your mixin more flexible. Here’s an example for theme.
+@mixin myprop
+  background-color: black
+  padding: 10px 20px
+  display: flex 
+  flex-direction: column
+  align-items: center
+  gap: 10px
+
+* 
+  margin: 0
+  padding: 0
+  font-family: $font
+
+h2 
+  color: red
+  &:hover
+    color: blue
+    cursor: pointer
+
+// Operators:
+// Doing math in your CSS is very helpful. Sass has a handful of standard math operators like +, -, *, math.div(), and %.
+.operator
+  font-size: 40px + 20px
+  font-weight: bold
+  color: $color1
+  cursor: pointer
+
+// Nesting:
+// Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML.
+.nesting 
+  @include myprop
+
+  @media (max-width: 600px) 
+    background-color: blue
+
+  button 
+    background-color: white
+    padding: 10px 20px
+    font-weight: bold
+
+  p 
+    color: $primary-color  
+    font-weight: bold
