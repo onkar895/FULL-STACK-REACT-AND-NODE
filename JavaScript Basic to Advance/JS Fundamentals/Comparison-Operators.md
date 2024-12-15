@@ -53,9 +53,11 @@ console.log(obj1.val1 == "value"); // true
 console.log(obj1 == obj2); // false
 console.log(obj1.val1 == obj2.val2); // true
 
-// Check against undefined
+// Check against undefined : Anything compared with the undefined always remains false expect null.
 console.log(0 == undefined); // false
+// undefined is a special type in JavaScript that represents an uninitialized variable or the absence of a value. 0 is a number and is not considered equivalent to undefined in a loose comparison.
 console.log(null == undefined); // true
+// Both null and undefined represent an absence of value, which is why JavaScript treats them as equal
 ```
 
 **Output:**
@@ -95,6 +97,7 @@ console.log(val1 != val1); // false
 // Check against null and boolean value
 console.log(0 != false); // false
 console.log(0 != null); // true
+// for the equality operator null remains same as "null"
 ```
 
 **Output:**
@@ -289,8 +292,14 @@ let val2 = "5";
 
 // Checking of operands
 console.log(val1 > 0); // true
+
 console.log(val2 > "10"); // true
+// JavaScript compares strings lexicographically (i.e., based on their Unicode values).
+// JavaScript compares the strings "5" and "10" character by character from left to right. It first compares the character '5' (from "5") with '1' (from "10") that means 5 > 0 will result in true.
+
 console.log(val1 > "10"); // false
+// 5 is already a number, so it stays as it is.
+// "10" is a string. JavaScript will try to convert it to a number for the comparison, as one of the operands is a number. so 5 > 10 will be false.
 console.log(val2 > 0); // true
 ```
 
@@ -315,6 +324,9 @@ console.log(obj1.val1 > 0); // true
 console.log(obj1 > obj2); // false
 console.log(obj1.val1 > obj2.val2); // false
 console.log(obj2 > obj1); // false
+// When you use the > OR < operator with objects (obj2 > obj1), JavaScript attempts to compare their references.
+// Meaning they are located in different places in memory and have different references.
+// Since obj1 and obj2 point to different memory locations, JavaScript will not consider them equal, and the comparison obj2 > obj1 will be false.
 console.log(obj2.val2 > obj1.val1); // true
 ```
 
@@ -372,9 +384,18 @@ let obj2 = { val2: 3 };
 
 // Checking of operands
 console.log(obj1.val1 >= 0); // true
+
 console.log(obj1 >= obj2); // true
+// For >= or <= JavaScript internally converts objects to primitive values for comparison.
+// JavaScript will attempt to convert obj1 and obj2 to primitive values (typically, to strings or numbers) for the comparison.
+// By default, when objects are compared in this way, JavaScript tries to call their toString() method.
+// The toString() method on a plain object like { val1: 1 } returns the string "[object Object]", which is the default string representation for any object.
+// So, both obj1 and obj2 will be converted to the string "[object Object]" before the comparison. JavaScript now compares these two strings: "[object Object]" >= "[object Object]". that means true.
+
 console.log(obj1.val1 >= obj2.val2); // false
+
 console.log(obj2 >= obj1); // true
+
 console.log(obj2.val2 >= obj1.val1); // true
 ```
 
