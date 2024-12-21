@@ -36,7 +36,7 @@ for (let i = 4; i >= 1; i--) {
 }
 
 console.log('------------------')
-// 2. Find the count of the string without using length mehtod:
+// 2. Find the count of the string without using length method:
 
 let myName = 'Omkar Shashikant Karale'
 
