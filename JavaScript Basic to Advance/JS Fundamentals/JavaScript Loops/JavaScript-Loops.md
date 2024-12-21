@@ -1,12 +1,10 @@
 # JavaScript Loops
 
-## Overview
-
 Loops are fundamental constructs in programming that allow us to execute a block of code repeatedly. JavaScript provides several types of loops, each with unique use cases and syntax. In this guide, we will explore the most commonly used loops: the `for` loop, `while` loop, and `do while` loop. By the end of this guide, you will have a solid understanding of how to use these loops effectively in your JavaScript code.
 
 ---
 
-## For Loop
+## For Loop:
 
 The `for` loop is one of the most commonly used loops in JavaScript. It provides a concise way to iterate over a range of values and is often preferred over the `while` loop due to its compact syntax.
 
