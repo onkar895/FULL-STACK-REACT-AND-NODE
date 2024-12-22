@@ -1,10 +1,10 @@
 function decimal_to_binary (n) {
   // Convert string to number and then to binary, removing '0b' prefix
   let binary = Number(n).toString(2)
-  process.stdout.write(binary)
+  process.stdout.write(`${n} in binary: ${binary}`)
 }
 
-decimal_to_binary(33)
+decimal_to_binary('33')
 
 console.log('\n')
 
@@ -17,7 +17,7 @@ function decimal_to_binary (n) {
     binary = (num % 2) + binary
     num = Math.floor(num / 2)
   }
-  process.stdout.write(binary)
+  process.stdout.write(`${n} in binary: ${binary}`)
 }
 
-decimal_to_binary(6)
+decimal_to_binary('6')
