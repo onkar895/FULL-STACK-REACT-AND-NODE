@@ -40,3 +40,4 @@ function extraChar (s1, s2) {
 }
 
 console.log(extraChar('abcd', 'badce'))
+
