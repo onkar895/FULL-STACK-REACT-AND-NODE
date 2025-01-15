@@ -31,16 +31,12 @@ function App() {
     },
   ]
 
-  const randomNumber = () => {
-    return Math.ceil(Math.random() * 6);
-  }
+  const randomNumber = Math.floor(Math.random() * 10) + 1;
 
-  const [count, setCount] = useState(randomNumber())
+  const [count, setCount] = useState(randomNumber)
 
   const ClickOnButton = () => {
-    const newRandomNum = randomNumber()
-    setCount(newRandomNum)
-    console.log(count)
+    setCount(randomNumber)
   }
 
   return (
@@ -51,6 +47,11 @@ function App() {
         <button onClick={ClickOnButton}>
           Click to get a new number
         </button>
+        {
+          count < 5
+            ? <h4>Number is less than 5</h4>
+            : <h4>Number is greater than/equal to 5</h4>
+        }
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', }}>
         {
