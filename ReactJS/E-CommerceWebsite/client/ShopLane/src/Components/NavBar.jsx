@@ -7,10 +7,16 @@ import { GoSearch } from "react-icons/go";
 const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [expandInput, setExpandInput] = useState(false);
+  const [expandMobileInput, setExpandMobileInput] = useState(false);
 
   const listStyles = `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:text-blue-600 tracking-widest hover:underline hover:underline-offset-8 ${isSidebarOpen ? 'text-md' : 'text-sm'}`;
 
-  const inputStyles = "block w-full border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition duration-300 ease-in-out";
+  const inputStyles = `block border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandInput ? 'w-[30vw]' : 'w-[20vw]'
+    }`;
+
+  const mobileInputStyles = `block w-full border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandMobileInput ? 'h-12' : 'h-10'
+    }`;
 
   const navItems = [
     { id: 1, title: "Home" },
@@ -24,6 +30,22 @@ const NavBar = () => {
     document.body.style.overflow = !isSidebarOpen ? 'hidden' : 'unset';
   };
 
+  const handleSearchFocus = () => {
+    setExpandInput(true);
+  };
+
+  const handleSearchBlur = () => {
+    setExpandInput(false);
+  };
+
+  const handleMobileSearchFocus = () => {
+    setExpandMobileInput(true);
+  };
+
+  const handleMobileSearchBlur = () => {
+    setExpandMobileInput(false);
+  };
+
   return (
     <>
       {/* Main Navbar */}
@@ -35,9 +57,9 @@ const NavBar = () => {
           </button>
 
           {/* Logo */}
-          <div className="transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-widest">
-            <span className="text-gradient">SHOP</span>
-            <span className="text-gray-600 hover:text-black">LANE</span>
+          <div className="cursor-pointer font-extrabold text-2xl md:text-4xl tracking-widest transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3">
+            <span className="text-gradient">Snap</span>
+            <span className="text-gray-600 hover:text-black">Cart</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -54,11 +76,13 @@ const NavBar = () => {
           {/* Search and Icons */}
           <div className="flex items-center gap-4 lg:gap-10">
             {/* Search Bar - Desktop */}
-            <div className="hidden lg:flex items-center relative w-[20vw]">
+            <div className="hidden lg:flex items-center relative">
               <input
                 type="text"
                 placeholder="What are you looking for?"
                 className={inputStyles}
+                onFocus={handleSearchFocus}
+                onBlur={handleSearchBlur}
               />
               <GoSearch className="absolute right-3 text-lg text-slate-500 cursor-pointer" />
             </div>
@@ -115,15 +139,17 @@ const NavBar = () => {
 
         {/* Mobile Search Bar */}
         {isSearchOpen && (
-          <div className="mt-4 px-2 lg:hidden">
+          <div className="mt-4 lg:hidden relative">
             <input
               type="text"
               placeholder="What are you looking for?"
-              className={inputStyles}
+              className={mobileInputStyles}
+              onFocus={handleMobileSearchFocus}
+              onBlur={handleMobileSearchBlur}
             />
+            <GoSearch className="absolute right-5 top-1/2 -translate-y-1/2 text-lg text-slate-500" />
           </div>
         )}
-
       </nav>
     </>
   );
