@@ -33,15 +33,21 @@ const TodoApp = () => {
   const [todos, setTodos] = useState([])
   const [count, setCount] = useState(0);
 
+  // Add todo function
   const addTodo = ((name, email, password) => {
     setTodos((prevState) => [...prevState, { id: uuid(), name: name, email: email, password: password, completed: true }])
-    console.log(todos)
+    // console.log(todos)
   })
 
   const toggleMarkCompleted = (id) => {
     setTodos((prevState) => prevState.map((todo) => {
       return todo.id === id ? { ...todo, completed: !todo.completed } : todo
     }));
+  }
+
+  // Delete todo function
+  const deleteTodo = (id) => {
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id))
   }
 
   // This will be executed for each re-render 
@@ -72,13 +78,18 @@ const TodoApp = () => {
     console.log('5. count or todos as dependency');
   }, [count, todos])
 
+
+  const mainStyle = { display: 'block', margin: 'auto', width: '600px', boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', padding: '30px' }
+
+  const h1Style = { display: 'block', margin: 'auto', textAlign: 'center', marginTop: '50px', cursor: 'pointer', backgroundColor: '#0066B2', color: 'white', width: '500px', padding: '10px' }
+
   return (
     <>
-      <div style={{ display: 'block', margin: 'auto', width: '600px', boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', padding: '30px' }}>
+      <div style={mainStyle}>
         <Form addTodo={addTodo} />
-        <TodoList todos={todos} toggleMarkCompleted={toggleMarkCompleted} />
+        <TodoList todos={todos} toggleMarkCompleted={toggleMarkCompleted} deleteTodo={deleteTodo} />
       </div>
-      <h1 style={{ display: 'block', margin: 'auto', textAlign: 'center', marginTop: '50px', cursor: 'pointer', backgroundColor: '#0066B2', color: 'white', width: '500px', padding: '10px' }} onClick={() => setCount(count + 1)}>Hooks Demo: {count}</h1>
+      <h1 style={h1Style} onClick={() => setCount(count + 1)}>Hooks Demo: {count}</h1>
     </>
   )
 }
