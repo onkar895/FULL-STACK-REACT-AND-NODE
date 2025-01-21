@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.dark {
+  background-color: black;
+  color: white; /* Ensure text is visible on dark background */
+}
+
+.light {
+  background-color: white;
+  color: black; /* Ensure text is visible on light background */
+}

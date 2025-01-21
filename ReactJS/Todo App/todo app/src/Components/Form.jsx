@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useRef } from "react"
-
+import useInput from "../hooks/useInput";
 
 const Form = ({ addTodo }) => {
 
@@ -11,6 +11,8 @@ const Form = ({ addTodo }) => {
   // This initializes a ref object. Initially, todoTextInputRef.current is null.
   // So we have to attach the ref to the input field.
   // By attaching the ref to the <input> element, todoTextInputRef.current now points to the DOM element. It allows direct access to the <input>.
+
+  const [value, handleTakeInput] = useInput()   // Using Custom Hook
 
   const formSubmitHandler = (e) => {
     e.preventDefault()
@@ -23,6 +25,7 @@ const Form = ({ addTodo }) => {
     }
 
     addTodo(nameText, emailText, passwordText)
+    console.log(value)
 
     // Clear the input fields
     nameInputRef.current.value = ''
@@ -61,19 +64,19 @@ const Form = ({ addTodo }) => {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '25px' }}>
         <h2 style={{ color: '#0066B2' }}>Basic Form</h2>
         {/* attaching the ref to the <input> element */}
-        <input ref={nameInputRef}
+        <input onChange={(event) => handleTakeInput(event)} ref={nameInputRef}
           type="text"
           placeholder="Full Name"
           id="todo-text"
           style={inputStyle} />
         {/* attaching the ref to the <input> element */}
-        <input ref={emailInputRef}
+        <input onChange={(event) => handleTakeInput(event)} ref={emailInputRef}
           type="email"
           placeholder="Email ID"
           id="todo-text1"
           style={inputStyle} />
         {/* attaching the ref to the <input> element */}
-        <input ref={passwordInputRef}
+        <input onChange={(event) => handleTakeInput(event)} ref={passwordInputRef}
           type="password"
           placeholder="Password"
           id="todo-text2"

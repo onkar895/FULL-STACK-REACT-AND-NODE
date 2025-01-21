@@ -41,7 +41,7 @@ const TodoApp = () => {
 
   const toggleMarkCompleted = (id) => {
     setTodos((prevState) => prevState.map((todo) => {
-      return todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      return todo.id === id ? {...todo, completed: !todo.completed } : todo
     }));
   }
 
@@ -79,7 +79,7 @@ const TodoApp = () => {
   }, [count, todos])
 
 
-  const mainStyle = { display: 'block', margin: 'auto', width: '600px', boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', padding: '30px' }
+  const mainStyle = { display: 'block', margin: 'auto', width: '600px', boxShadow: ' 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)', padding: '20px' }
 
   const h1Style = { display: 'block', margin: 'auto', textAlign: 'center', marginTop: '50px', cursor: 'pointer', backgroundColor: '#0066B2', color: 'white', width: '500px', padding: '10px' }
 

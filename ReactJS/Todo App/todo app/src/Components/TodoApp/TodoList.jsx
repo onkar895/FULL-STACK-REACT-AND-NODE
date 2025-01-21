@@ -17,7 +17,7 @@ const TodoList = ({ todos, toggleMarkCompleted, deleteTodo }) => {
   };
 
   return (
-    <div style={{ display: "block", margin: 'auto', width: '500px', height: 'auto', marginTop: '50px' }}>
+    <div style={{ display: "block", margin: 'auto', width: '500px', height: 'auto', marginTop: '30px' }}>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
