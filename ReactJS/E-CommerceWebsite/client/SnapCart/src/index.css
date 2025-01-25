@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-display: swap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,5 +22,9 @@ html {
 @layer base {
   .text-gradient {
     @apply text-transparent bg-clip-text brightness-105 bg-gradient-to-r from-blue-500 to-cyan-300 hover:bg-gradient-to-r hover:from-cyan-300 hover:to-blue-500;
+  }
+
+  .text-gradient1 {
+    @apply text-transparent bg-clip-text brightness-105 bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-500;
   }
 }

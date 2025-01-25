@@ -3,6 +3,7 @@ import { MdFavoriteBorder, MdOutlineShoppingCart, MdMenu, MdClose } from "react-
 import { AiOutlineUser } from "react-icons/ai";
 import IconWithTooltip from "./IconWithTooltip";
 import { GoSearch } from "react-icons/go";
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -10,7 +11,11 @@ const NavBar = () => {
   const [expandInput, setExpandInput] = useState(false);
   const [expandMobileInput, setExpandMobileInput] = useState(false);
 
-  const listStyles = `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:text-blue-600 tracking-widest hover:underline hover:underline-offset-8 ${isSidebarOpen ? 'text-lg' : 'text-md'}`;
+  const navigate = useNavigate()
+  const location = useLocation()
+
+
+  const listStyles = `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:brightness-95 hover:text-gradient1 tracking-widest ${isSidebarOpen ? 'text-lg' : 'text-md'}`;
 
   const inputStyles = `block border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandInput ? 'w-[30vw]' : 'w-[20vw]'
     }`;
@@ -67,7 +72,11 @@ const NavBar = () => {
             <ul className="flex items-center gap-10">
               {navItems.map((item) => (
                 <li key={item.id} className={listStyles}>
-                  {item.title}
+                  <NavLink to={item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`} className={({ isActive }) =>
+                    `${listStyles} ${isActive ? "text-gradient1 font-semibold tracking-widest underline underline-offset-8" : ""}`
+                  }>
+                    {item.title}
+                  </NavLink>
                 </li>
               ))}
             </ul>
@@ -98,13 +107,18 @@ const NavBar = () => {
             {/* Action Icons */}
             <div className="flex items-center gap-4 lg:gap-6 text-xl lg:text-2xl">
               <IconWithTooltip tooltip="Favorites" className="hidden sm:block">
-                <MdFavoriteBorder />
+                <MdFavoriteBorder onClick={() => navigate('/wishlist')} className={location.pathname === "/wishlist" ? "text-pink-600 font-bold" : ""} />
               </IconWithTooltip>
               <IconWithTooltip tooltip="Cart">
-                <MdOutlineShoppingCart />
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) => (isActive ? "text-pink-600 font-bold" : "")}
+                >
+                  <MdOutlineShoppingCart />
+                </NavLink>
               </IconWithTooltip>
               <IconWithTooltip tooltip="Profile">
-                <AiOutlineUser />
+                <AiOutlineUser onClick={() => navigate('/profile')} className={location.pathname === "/profile" ? "text-pink-600 font-bold" : ""} />
               </IconWithTooltip>
             </div>
           </div>
@@ -130,7 +144,11 @@ const NavBar = () => {
             <ul className="space-y-4">
               {navItems.map((item) => (
                 <li key={item.id} className={listStyles}>
-                  {item.title}
+                  <NavLink to={item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`} className={({ isActive }) =>
+                    `${listStyles} ${isActive ? "text-blue-600 font-semibold tracking-widest underline underline-offset-8" : ""}`
+                  }>
+                    {item.title}
+                  </NavLink>
                 </li>
               ))}
             </ul>
