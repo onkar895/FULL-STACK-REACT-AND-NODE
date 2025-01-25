@@ -83,7 +83,7 @@ const ImageCarousel = () => {
         }
       >
         {images.map((image, index) => (
-          <div key={index} className="h-[400px]">
+          <div key={index} className="h-[300px] md:h-[400px]">
             <img src={image.src || "/placeholder.svg"} alt={image.alt} className="object-cover w-full h-full" />
           </div>
         ))}

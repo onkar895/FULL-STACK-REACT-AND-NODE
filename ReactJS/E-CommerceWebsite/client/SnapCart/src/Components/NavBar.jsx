@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MdFavoriteBorder, MdOutlineShoppingCart, MdMenu, MdClose } from "react-icons/md";
+import { MdFavoriteBorder, MdOutlineShoppingBasket, MdMenu, MdClose } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import IconWithTooltip from "./IconWithTooltip";
 import { GoSearch } from "react-icons/go";
@@ -62,7 +62,7 @@ const NavBar = () => {
           </button>
 
           {/* Logo */}
-          <div className="cursor-pointer font-extrabold text-2xl md:text-4xl tracking-widest transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3">
+          <div className="cursor-pointer font-extrabold text-3xl md:text-4xl tracking-widest transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3" onClick={() => navigate('/')}>
             <span className="text-gradient">Snap</span>
             <span className="text-gray-600 hover:text-black">Cart</span>
           </div>
@@ -114,7 +114,7 @@ const NavBar = () => {
                   to="/cart"
                   className={({ isActive }) => (isActive ? "text-pink-600 font-bold" : "")}
                 >
-                  <MdOutlineShoppingCart />
+                  <MdOutlineShoppingBasket />
                 </NavLink>
               </IconWithTooltip>
               <IconWithTooltip tooltip="Profile">
@@ -137,7 +137,7 @@ const NavBar = () => {
             <button onClick={toggleSidebar} className="mb-6">
               <MdClose className="text-3xl" />
             </button>
-            <div className="transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-widest mb-8">
+            <div className="transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer font-extrabold text-3xl lg:text-4xl tracking-widest mb-8" onClick={() => navigate('/')}>
               <span className="text-gradient">Snap</span>
               <span className="text-gray-600">Cart</span>
             </div>
@@ -145,7 +145,7 @@ const NavBar = () => {
               {navItems.map((item) => (
                 <li key={item.id} className={listStyles}>
                   <NavLink to={item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`} className={({ isActive }) =>
-                    `${listStyles} ${isActive ? "text-blue-600 font-semibold tracking-widest underline underline-offset-8" : ""}`
+                    `${listStyles} ${isActive ? "text-gradient1 font-semibold tracking-widest underline underline-offset-8" : ""}`
                   }>
                     {item.title}
                   </NavLink>
