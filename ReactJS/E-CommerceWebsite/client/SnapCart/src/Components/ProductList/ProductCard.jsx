@@ -1,8 +1,17 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
+
 const ProductCard = ({ product }) => {
 
   const { title, image, description, category } = product
+
+  const cartContext = useContext(CartContext)
+
+  const handleAddToCart = () => {
+    cartContext.addToCart({ title, image, description, category, qty: 1 })
+  }
 
   const truncateDesc = (text, maxLength) => {
     if (text.length > maxLength) {
@@ -29,8 +38,8 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="mx-auto flex items-center justify-between w-full">
           {/* <button className="bg-black text-white px-3 py-1 rounded-md">Add to Cart</button> */}
-          <button className="bg-slate-600 hover:bg-black text-white px-3 py-1 rounded-md">View Details</button>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md">Wishlist</button>
+          <button className="bg-slate-600 hover:bg-black text-white px-3 py-1 rounded-md" onClick={handleAddToCart}>Add to Cart</button>
+          <button className="bg-blue-400 hover:bg-blue-500 text-white px-3 py-1 rounded-md">Wishlist</button>
         </div>
       </div>
     </>

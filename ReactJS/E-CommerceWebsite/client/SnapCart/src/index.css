@@ -19,6 +19,19 @@ html {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0e97c9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
 @layer base {
   .text-gradient {
     @apply text-transparent bg-clip-text brightness-105 bg-gradient-to-r from-blue-500 to-cyan-300 hover:bg-gradient-to-r hover:from-cyan-300 hover:to-blue-500;
