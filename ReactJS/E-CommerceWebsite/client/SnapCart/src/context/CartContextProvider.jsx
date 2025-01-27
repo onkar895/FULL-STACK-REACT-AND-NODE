@@ -10,14 +10,14 @@ const CartContextProvider = ({ children }) => {
     setCart((prev) => [...prev, item])
   }
 
-  const context = {
-    cart: cart,
-    cartLength: cart.length,
-    addToCart: addToCart,
-  }
+  // const context = {
+  //   cart: cart,
+  //   cartLength: cart.length,
+  //   addToCart: addToCart,
+  // }
 
   return (
-    <CartContext.Provider value={{ context, cart, cartLength: cart.length, addToCart }}>
+    <CartContext.Provider value={{ cart, cartLength: cart.length, addToCart }}>
       {children}
     </CartContext.Provider>
   )
