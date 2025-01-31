@@ -10,6 +10,10 @@ const CartContextProvider = ({ children }) => {
     setCart((prev) => [...prev, item])
   }
 
+  const removeFromCart = (title) => {
+    setCart((prevCart) => prevCart.filter((item) => item.title !== title));
+  };
+
   // const context = {
   //   cart: cart,
   //   cartLength: cart.length,
@@ -17,7 +21,7 @@ const CartContextProvider = ({ children }) => {
   // }
 
   return (
-    <CartContext.Provider value={{ cart, cartLength: cart.length, addToCart }}>
+    <CartContext.Provider value={{ cart, cartLength: cart.length, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   )

@@ -49,7 +49,6 @@ const NavBar = () => {
     setExpandMobileInput(false);
   };
 
-
   // Memoized styles to prevent unnecessary re-computations
   const styles = useMemo(() => ({
 
