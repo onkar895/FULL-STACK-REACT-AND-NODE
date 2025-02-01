@@ -4,7 +4,7 @@
 const IconWithTooltip = ({ children, tooltip }) => {
   return (
     <div className="relative group">
-      <div className="text-slate-500 hover:text-black cursor-pointer">
+      <div className="text-slate-500 dark:text-slate-300 hover:text-black dark:hover:text-white cursor-pointer">
         {children}
       </div>
       {/* Tooltip */}

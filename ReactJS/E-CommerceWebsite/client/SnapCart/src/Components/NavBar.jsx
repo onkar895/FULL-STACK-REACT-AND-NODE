@@ -1,21 +1,21 @@
+/* eslint-disable react/prop-types */
 import { useCallback, useContext, useMemo, useState } from 'react';
-import { MdFavoriteBorder, MdOutlineShoppingBasket, MdMenu, MdClose } from "react-icons/md";
+import { MdFavoriteBorder, MdOutlineShoppingBasket, MdMenu, MdClose, MdNightlight, MdLightMode } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import IconWithTooltip from "./IconWithTooltip";
 import { GoSearch } from "react-icons/go";
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import CartContext from '../context/CartContext';
 
-const NavBar = () => {
+const NavBar = ({ isDark, toggleDarkMode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [expandInput, setExpandInput] = useState(false);
   const [expandMobileInput, setExpandMobileInput] = useState(false);
 
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const cartContext = useContext(CartContext)
+  const navigate = useNavigate();
+  const location = useLocation();
+  const cartContext = useContext(CartContext);
 
   const navItems = [
     { id: 1, title: "Home" },
@@ -24,50 +24,35 @@ const NavBar = () => {
     { id: 4, title: "Contact" }
   ];
 
-  // Memoized toggle sidebar to prevent unnecessary re-renders
   const toggleSidebar = useCallback(() => {
     setIsSidebarOpen(prev => {
-      // Toggle body overflow based on previous state
       document.body.style.overflow = !prev ? 'hidden' : 'auto';
       return !prev;
     });
   }, []);
 
-  const handleSearchFocus = () => {
-    setExpandInput(true);
-  };
+  const handleSearchFocus = () => setExpandInput(true);
+  const handleSearchBlur = () => setExpandInput(false);
+  const handleMobileSearchFocus = () => setExpandMobileInput(true);
+  const handleMobileSearchBlur = () => setExpandMobileInput(false);
 
-  const handleSearchBlur = () => {
-    setExpandInput(false);
-  };
-
-  const handleMobileSearchFocus = () => {
-    setExpandMobileInput(true);
-  };
-
-  const handleMobileSearchBlur = () => {
-    setExpandMobileInput(false);
-  };
-
-  // Memoized styles to prevent unnecessary re-computations
   const styles = useMemo(() => ({
+    logoName: "cursor-pointer font-extrabold text-2xl md:text-4xl tracking-widest transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3",
 
-    logoName: "cursor-pointer font-extrabold text-3xl md:text-4xl tracking-widest transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3",
+    listStyles: `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:brightness-95 hover:text-gradient1 tracking-widest dark:hover:brightness-125 ${isSidebarOpen ? 'text-lg' : 'text-md'}`,
 
-    listStyles: `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:brightness-95 hover:text-gradient1 tracking-widest ${isSidebarOpen ? 'text-lg' : 'text-md'}`,
+    inputStyles: (expand) => `block border border-slate-300 dark:border-slate-600 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 dark:bg-slate-700 dark:text-white tracking-widest transition-all duration-300 ease-in-out ${expand ? 'w-[30vw]' : 'w-[25vw]'}`,
 
-    inputStyles: (expandInput) => `block border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandInput ? 'w-[30vw]' : 'w-[25vw]'}`,
+    mobileInputStyles: (expand) => `block w-full border border-slate-300 dark:border-slate-600 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 dark:bg-slate-700 dark:text-white tracking-widest transition-all duration-300 ease-in-out ${expand ? 'h-12' : 'h-10'}`,
 
-    mobileInputStyles: (expandMobileInput) => `block w-full border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandMobileInput ? 'h-12' : 'h-10'}`,
+    activeStyles: "text-gradient1 dark:brightness-125 font-semibold tracking-widest underline underline-offset-8",
 
-    activeStyles: "text-gradient1 font-semibold tracking-widest underline underline-offset-8",
-
-  }), [])
+  }), [isSidebarOpen]);
 
   return (
     <>
       {/* Main Navbar */}
-      <nav className="bg-white fixed w-full py-4 md:py-7 px-4 md:px-10 z-30">
+      <nav className="fixed w-full py-4 md:py-7 px-4 md:px-10 z-30 bg-white dark:bg-slate-900 transition-colors duration-300 border-b border-gray-200 dark:border-slate-700">
         <div className="flex items-center justify-between">
           {/* Mobile Menu Button */}
           <button className="xl:hidden" onClick={toggleSidebar}>
@@ -77,7 +62,7 @@ const NavBar = () => {
           {/* Logo */}
           <div className={`${styles.logoName}`} onClick={() => navigate('/')}>
             <span className="text-gradient">Snap</span>
-            <span className="text-gray-600 hover:text-black">Cart</span>
+            <span className="text-gray-600 hover:text-black dark:text-white">Cart</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -114,7 +99,7 @@ const NavBar = () => {
               className="lg:hidden"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
             >
-              <GoSearch className="text-xl" />
+              <GoSearch className="text-xl text-slate-500 dark:text-slate-300 dark:hover:text-white hover:text-black" />
             </button>
 
             {/* Action Icons */}
@@ -142,6 +127,11 @@ const NavBar = () => {
                   className={location.pathname === "/profile" ? "text-pink-600 font-bold" : ""}
                 />
               </IconWithTooltip>
+              <div onClick={toggleDarkMode} className='cursor-pointer text-slate-500 dark:text-slate-300 hover:dark:text-white hover:text-black'>
+                {
+                  isDark ? <MdLightMode /> : <MdNightlight />
+                }
+              </div>
             </div>
           </div>
         </div>
@@ -154,14 +144,16 @@ const NavBar = () => {
         )}
 
         {/* Mobile Sidebar */}
-        <div className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-500 ease-in-out xl:hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-500 ease-in-out xl:hidden dark:bg-slate-900 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="p-6">
-            <button onClick={toggleSidebar} className="mb-6">
-              <MdClose className="text-3xl" />
-            </button>
-            <div className={`${styles.logoName} mb-8`} onClick={() => navigate('/')}>
-              <span className="text-gradient">Snap</span>
-              <span className="text-gray-600">Cart</span>
+            <div className='flex items-center justify-between'>
+              <div className={`${styles.logoName} mb-8`} onClick={() => navigate('/')}>
+                <span className="text-gradient">Snap</span>
+                <span className="text-gray-600 dark:text-white">Cart</span>
+              </div>
+              <button onClick={toggleSidebar} className="mb-7">
+                <MdClose className="text-3xl" />
+              </button>
             </div>
             <ul className="space-y-4">
               {navItems.map((item) => (
@@ -178,8 +170,9 @@ const NavBar = () => {
         </div>
 
         {/* Mobile Search Bar */}
-        {isSearchOpen && (
-          <div className="mt-4 xl:hidden relative">
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-in-out xl:hidden ${isSearchOpen ? "max-h-20 opacity-100 py-2" : "max-h-0 opacity-0 py-0"}`}>
+          <div className="relative">
             <input
               type="text"
               placeholder="What are you looking for?"
@@ -189,7 +182,8 @@ const NavBar = () => {
             />
             <GoSearch className="absolute right-5 top-1/2 -translate-y-1/2 text-lg text-slate-500" />
           </div>
-        )}
+        </div>
+
       </nav>
     </>
   );
