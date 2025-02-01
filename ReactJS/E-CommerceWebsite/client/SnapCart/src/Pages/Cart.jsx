@@ -7,13 +7,13 @@ const Cart = () => {
   const { cart, removeFromCart } = useContext(CartContext);
 
   return (
-    <div className="px-10 py-40 block w-[45vw] mx-auto">
+    <div className="px-10 py-40 block w-full lg:w-[55vw] mx-auto">
       <h2 className="font-bold text-4xl text-center text-blue-400 underline underline-offset-8">Your Cart</h2>
       {cart.length === 0 ? (
         <h1 className="my-16 text-center text-3xl font-semibold">Your cart is empty.</h1>
       ) : (
         cart.map((item, index) => (
-          <div key={index} className="border-b py-10 flex gap-10">
+          <div key={index} className="border-b py-10 flex max-sm:flex-col items-center gap-10">
             <img src={item.image} alt={item.title} className="w-24 h-24 object-contain" />
             <div className="w-full">
               <h3 className="font-semibold">{item.title}</h3>
