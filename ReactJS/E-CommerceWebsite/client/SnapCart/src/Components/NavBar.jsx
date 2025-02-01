@@ -56,7 +56,7 @@ const NavBar = () => {
 
     listStyles: `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:brightness-95 hover:text-gradient1 tracking-widest ${isSidebarOpen ? 'text-lg' : 'text-md'}`,
 
-    inputStyles: (expandInput) => `block border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandInput ? 'w-[30vw]' : 'w-[20vw]'}`,
+    inputStyles: (expandInput) => `block border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandInput ? 'w-[30vw]' : 'w-[20vw] lg:w-[25vw]'}`,
 
     mobileInputStyles: (expandMobileInput) => `block w-full border border-slate-300 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 tracking-widest transition-all duration-300 ease-in-out ${expandMobileInput ? 'h-12' : 'h-10'}`,
 
@@ -67,10 +67,10 @@ const NavBar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="bg-white fixed w-full py-7 px-4 xl:px-16 z-30">
+      <nav className="bg-white fixed w-full py-4 md:py-7 px-4 md:px-10 xl:px-16 z-30">
         <div className="flex items-center justify-between">
           {/* Mobile Menu Button */}
-          <button className="lg:hidden" onClick={toggleSidebar}>
+          <button className="xl:hidden" onClick={toggleSidebar}>
             <MdMenu className="text-2xl" />
           </button>
 
@@ -81,7 +81,7 @@ const NavBar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <ul className="flex items-center gap-10">
               {navItems.map((item) => (
                 <li key={item.id} className={styles.listStyles}>
@@ -118,7 +118,7 @@ const NavBar = () => {
             </button>
 
             {/* Action Icons */}
-            <div className="flex items-center gap-4 lg:gap-6 text-xl lg:text-2xl">
+            <div className="flex items-center gap-4 xl:gap-6 text-xl lg:text-2xl">
               <IconWithTooltip tooltip="Favorites" className="hidden sm:block">
                 <MdFavoriteBorder
                   onClick={() => navigate('/wishlist')}
@@ -154,7 +154,7 @@ const NavBar = () => {
         )}
 
         {/* Mobile Sidebar */}
-        <div className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-500 ease-in-out lg:hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-500 ease-in-out xl:hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="p-4">
             <button onClick={toggleSidebar} className="mb-6">
               <MdClose className="text-3xl" />
@@ -179,7 +179,7 @@ const NavBar = () => {
 
         {/* Mobile Search Bar */}
         {isSearchOpen && (
-          <div className="mt-4 lg:hidden relative">
+          <div className="mt-4 xl:hidden relative">
             <input
               type="text"
               placeholder="What are you looking for?"
