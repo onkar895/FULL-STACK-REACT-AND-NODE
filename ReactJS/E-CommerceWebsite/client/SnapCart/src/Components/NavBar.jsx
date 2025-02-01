@@ -67,7 +67,7 @@ const NavBar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="bg-white fixed w-full py-7 px-4 xl:px-20 z-30">
+      <nav className="bg-white fixed w-full py-7 px-4 xl:px-16 z-30">
         <div className="flex items-center justify-between">
           {/* Mobile Menu Button */}
           <button className="lg:hidden" onClick={toggleSidebar}>
