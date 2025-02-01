@@ -39,11 +39,11 @@ const NavBar = ({ isDark, toggleDarkMode }) => {
   const styles = useMemo(() => ({
     logoName: "cursor-pointer font-extrabold text-2xl md:text-4xl tracking-widest transition-all duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3",
 
-    listStyles: `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:brightness-95 hover:text-gradient1 tracking-widest dark:hover:brightness-125 ${isSidebarOpen ? 'text-lg' : 'text-md'}`,
+    listStyles: `transition-all hover:duration-300 ease-in-out hover:skew-x-6 hover:skew-y-3 cursor-pointer hover:brightness-95 hover:text-gradient1 tracking-widest dark:hover:brightness-125`,
 
-    inputStyles: (expand) => `block border border-slate-300 dark:border-slate-600 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 dark:bg-slate-700 dark:text-white tracking-widest transition-all duration-300 ease-in-out ${expand ? 'w-[30vw]' : 'w-[25vw]'}`,
+    inputStyles: (expand) => `block border border-slate-300 dark:border-slate-600 text-sm py-1.5 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 dark:bg-slate-700 dark:text-white tracking-widest transition-all duration-300 ease-in-out ${expand ? 'w-[30vw]' : 'w-[25vw]'}`,
 
-    mobileInputStyles: (expand) => `block w-full border border-slate-300 dark:border-slate-600 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 dark:bg-slate-700 dark:text-white tracking-widest transition-all duration-300 ease-in-out ${expand ? 'h-12' : 'h-10'}`,
+    mobileInputStyles: (expand) => `block w-full border border-slate-300 dark:border-slate-600 text-sm py-2 px-5 rounded-lg focus:outline-none focus:border-blue-400 shadow-sm focus:shadow-md bg-gray-100 dark:bg-slate-700 dark:text-white tracking-widest transition-all duration-300 ease-in-out ${expand ? 'h-10' : 'h-8'}`,
 
     activeStyles: "text-gradient1 dark:brightness-125 font-semibold tracking-widest underline underline-offset-8",
 
@@ -52,7 +52,7 @@ const NavBar = ({ isDark, toggleDarkMode }) => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="fixed w-full py-4 md:py-7 px-4 md:px-10 z-30 bg-white dark:bg-slate-900 transition-colors duration-300 border-b border-gray-200 dark:border-slate-700">
+      <nav className="fixed w-full py-4 px-4 md:px-10 z-30 bg-white dark:bg-slate-900 transition-colors duration-300 border-b border-gray-200 dark:border-slate-700">
         <div className="flex items-center justify-between">
           {/* Mobile Menu Button */}
           <button className="xl:hidden" onClick={toggleSidebar}>
@@ -145,13 +145,13 @@ const NavBar = ({ isDark, toggleDarkMode }) => {
 
         {/* Mobile Sidebar */}
         <div className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-500 ease-in-out xl:hidden dark:bg-slate-900 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <div className="p-6">
-            <div className='flex items-center justify-between'>
-              <div className={`${styles.logoName} mb-8`} onClick={() => navigate('/')}>
+          <div className="px-6 py-4">
+            <div className='flex items-center justify-between mb-8'>
+              <div className={`${styles.logoName}`} onClick={() => navigate('/')}>
                 <span className="text-gradient">Snap</span>
                 <span className="text-gray-600 dark:text-white">Cart</span>
               </div>
-              <button onClick={toggleSidebar} className="mb-7">
+              <button onClick={toggleSidebar}>
                 <MdClose className="text-3xl" />
               </button>
             </div>
@@ -171,7 +171,7 @@ const NavBar = ({ isDark, toggleDarkMode }) => {
 
         {/* Mobile Search Bar */}
         <div
-          className={`overflow-hidden transition-all duration-500 ease-in-out xl:hidden ${isSearchOpen ? "max-h-20 opacity-100 py-2" : "max-h-0 opacity-0 py-0"}`}>
+          className={`overflow-hidden transition-all duration-500 ease-in-out xl:hidden ${isSearchOpen ? "max-h-20 opacity-100 py-4" : "max-h-0 opacity-0 py-0"}`}>
           <div className="relative">
             <input
               type="text"

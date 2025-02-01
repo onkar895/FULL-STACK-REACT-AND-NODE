@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Route, Routes } from 'react-router-dom';
 import NavBar from "./Components/NavBar";
 import Home from "./Pages/Home";
@@ -34,9 +34,9 @@ const App = () => {
     }
   }, [isDark]);
 
-  const toggleDarkMode = () => {
+  const toggleDarkMode = useCallback(() => {
     setIsDark(prev => !prev);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-white transition-colors duration-300">
