@@ -41,24 +41,26 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>HII! THERE</h1>
-        <p>  Your dice roll: {count}.</p>
-        <button onClick={ClickOnButton}>
-          Click to get a new number
-        </button>
-        {
-          count < 5
-            ? <h4>Number is less than 5</h4>
-            : <h4>Number is greater than/equal to 5</h4>
-        }
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', }}>
-        {
-          persons.map((person, index) => {
-            return <Person key={index} name={person.name} age={person.age} />
-          })
-        }
+      <div className='flex flex-col space-y-20'>
+        <div>
+          <h1>HII! THERE</h1>
+          <p>  Your dice roll: {count}.</p>
+          <button onClick={ClickOnButton}>
+            Click to get a new number
+          </button>
+          {
+            count < 5
+              ? <h4>Number is less than 5</h4>
+              : <h4>Number is greater than/equal to 5</h4>
+          }
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', }}>
+          {
+            persons.map((person, index) => {
+              return <Person key={index} name={person.name} age={person.age} />
+            })
+          }
+        </div>
       </div>
     </>
   )
