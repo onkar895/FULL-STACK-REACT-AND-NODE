@@ -770,7 +770,6 @@ year: 2020
 
 ---
 
-
 # Optional Chaining in JavaScript
 
 The **optional chaining '?.'** is an error-proof way to access nested object properties, even if an intermediate property doesn't exist. It was recently introduced by ECMA International, Technical Committee 39 – ECMAScript which was authored by Claude Pache, Gabriel Isenberg, Daniel Rosenwasser, Dustin Savery. It works similar to Chaining '.' except that it does not report the error, instead it returns a value which is undefined. It also works with function call when we try to make a call to a method which may not exist.
@@ -821,6 +820,16 @@ Using optional chaining, you can safely access `city`:
 ```javascript
 console.log(user?.address?.city); // Output: Mumbai
 console.log(userWithoutAddress?.address?.city); // Output: undefined
+console.log(userWithoutAddress.address);  // undefined 
+console.log(userWithoutAddress.address.city); // Output: Because we are not using optional chaining we got the TypeError: Cannot read properties of undefined (reading 'city')
+
+// Or to avoid error you can use conditional statements like if-else without using optional chaining
+
+if(userWithoutAddress.address !== undefined){
+    console.log(userWithoutAddress.address.city)
+} else {
+    console.log("Address not found")   // Address not found
+}
 ```
 
 ### Example with Functions
