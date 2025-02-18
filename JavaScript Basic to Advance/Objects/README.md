@@ -884,7 +884,7 @@ console.log(user[key]?.city); // Output: Mumbai
 ---
 
 
-# JavaScript Destructuring
+# JavaScript Destructuring Object
 
 Destructuring is an important and frequently used concept in JavaScript, especially when dealing with complex objects or arrays, such as those returned from API responses. It allows for the unpacking of values from arrays or properties from objects into distinct variables. Let's delve into the concept and see how it can be effectively used.
 
