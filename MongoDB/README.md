@@ -21,7 +21,7 @@
 
 4. [Introduction to MongoDB 🚀](#introduction-to-mongodb)
    - [What is MongoDB](#what-is-mongodb)
-   - [MongoDB vs Traditional Databases](#mongodb-vs-traditional-databases)
+   - [MongoDB vs Traditional Databases (RDBMS)](#mongodb-vs-traditional-databases-rdbms)
    - [When to Use MongoDB?](#when-to-use-mongodb)
 
 5. [MongoDB: Getting Started Guide 📚](#mongodb-getting-started-guide)
@@ -30,7 +30,7 @@
    - [Creating and Importing Data](#creating-and-importing-data)
    - [Querying Data](#querying-data)
 
-6. [MongoDB vs MySQL: A Comprehensive Comparison 🚀](#mongodb-vs-Mysql-a-comprehensive-comparison)
+6. [MongoDB vs MySQL: A Comprehensive Comparison 🚀](#mongodb-vs-mysql-a-comprehensive-comparison)
    - [What are MongoDB and MySQL?](#what-are-mongodb-and-mysql)
    - [Key Features](#key-features)
    - [Terminology Differences](#terminology-differences)
@@ -355,7 +355,7 @@ MongoDB is the most popular NoSQL database that stores data in flexible, JSON-li
 - If one server fails, others take over
 - Ensures your data is always accessible
 
-## When to Use MongoDB? 🤔
+## When to Use MongoDB?
 
 ### Perfect for:
 - Big Data applications
