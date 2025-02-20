@@ -1,0 +1,22 @@
+{
+  "id": "236598",
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "age": 30,
+  "city": "New York",
+  "hobbies": ["cricket", "football"],
+  "favMovies": [
+    {
+      "title": "Inception",
+      "releaseYear": 2010
+    },
+    {
+      "title": "The Matrix",
+      "releaseYear": 1999
+    },
+    {
+      "title": "Avengers: Endgame",
+      "releaseYear": 2019
+    }
+  ]
+}
