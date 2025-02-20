@@ -4,38 +4,38 @@
 
 ## Table of Contents:
 
-1. [Understanding Database Types: Relational vs NoSQL](#understanding-database-types-relational-vs-nosql)
+1. [Understanding Database Types: Relational vs NoSQL 🚀](#understanding-database-types-relational-vs-nosql)
    - [Introduction to Database Types](#introduction-to-database-types)
    - [Detailed Comparison](#detailed-comparison)
    - [When to Use Each Type](#when-to-use-each-type)
 
-2. [NoSQL Cloud Database Services](#nosql-cloud-database-services)
+2. [NoSQL Cloud Database Services 💻](#nosql-cloud-database-services)
    - [Types of NoSQL databases](#types-of-nosql-databases)
-   - [Difference between NoSQL Databases and SQL Databases](#difference-between-nosql-databases-and-sql-Databasesl)
+   - [Difference between NoSQL Databases and SQL Databases](#difference-between-nosql-databases-and-sql-databases)
 
-3. [Understanding JSON and BSON:](#understanding-json-and-bson)
+3. [Understanding JSON and BSON: ✅](#understanding-json-and-bson)
    - [What is JSON?](#what-is-json)
    - [What is BSON?](#what-is-bson)
    - [JSON vs BSON Comparison](#json-vs-bson-comparison)
    - [How MongoDB Uses JSON and BSON](#how-mongodb-uses-json-and-bson)
 
-4. [Introduction to MongoDB](#introduction-to-mongodb)
+4. [Introduction to MongoDB 🚀](#introduction-to-mongodb)
    - [What is MongoDB](#what-is-mongodb)
    - [MongoDB vs Traditional Databases](#mongodb-vs-traditional-databases)
    - [When to Use MongoDB?](#when-to-use-mongodb)
 
-5. [MongoDB: Getting Started Guide](#mongodb-getting-started-guide)
+5. [MongoDB: Getting Started Guide 📚](#mongodb-getting-started-guide)
    - [Installation and Setup](#installation-and-setup)
    - [Starting MongoDB](#starting-mongodb)
    - [Creating and Importing Data](#creating-and-importing-data)
    - [Querying Data](#querying-data)
 
-6. [MongoDB vs MySQL: A Comprehensive Comparison](#mongodb-vs-Mysql-a-comprehensive-comparison)
+6. [MongoDB vs MySQL: A Comprehensive Comparison 🚀](#mongodb-vs-Mysql-a-comprehensive-comparison)
    - [What are MongoDB and MySQL?](#what-are-mongodb-and-mysql)
    - [Key Features](#key-features)
    - [Terminology Differences](#terminology-differences)
 
-7.   [MongoDB Installation Guide](#mongodb-installation-guide)
+7.   [MongoDB Installation Guide 📚](#mongodb-installation-guide)
    - [Ubuntu Installation](#ubuntu-installation)
    - [Windows Installation](#windows-installation)
    - [Testing Installation](#testing-installation)
@@ -252,7 +252,7 @@ hello\x00                  // field name
 \x00                       // 0x00 = type EOO ('end of object')
 ```
 
-## JSON vs BSON Comparison ↗️
+## JSON vs BSON Comparison
 
 | Feature | JSON | BSON |
 |---------|------|------|
@@ -300,7 +300,7 @@ You have several options:
 ---
 
 
-# Introduction to MongoDB 🗄️
+# Introduction to MongoDB 🚀
 
 ## What is MongoDB?
 MongoDB is the most popular NoSQL database that stores data in flexible, JSON-like documents. Unlike traditional databases, it doesn't require a fixed data structure, making it perfect for modern applications.
@@ -315,7 +315,7 @@ MongoDB is the most popular NoSQL database that stores data in flexible, JSON-li
 }
 ```
 
-## MongoDB vs Traditional Databases (RDBMS) 🚀
+## MongoDB vs Traditional Databases (RDBMS) 
 
 | Feature | Traditional Database (RDBMS) | MongoDB |
 |---------|----------------------------|---------|
@@ -431,7 +431,7 @@ Remember: MongoDB shines when you need flexibility and scalability, but traditio
 | Document | Set of field-value pairs | Row/Record |
 | Field | A key-value pair in a document | Column |
 
-## Installation and Setup ✅
+## Installation and Setup 
 
 ### Important Executables
 Located in `C:\Program Files\MongoDB\Server\[version]\bin`:
@@ -477,7 +477,7 @@ use <database_name>
 show collections
 ```
 
-### Creating and Importing Data ↗️
+### Creating and Importing Data
 
 1. **Create Collection**:
 ```javascript
@@ -493,7 +493,7 @@ db.createCollection("collection_name", {
 mongoimport --jsonArray --db test --collection employee_data < path/to/file.json
 ```
 
-## Querying Data 🔍
+## Querying Data
 
 ### Basic Query Methods
 ```javascript
@@ -627,7 +627,7 @@ This structured comparison highlights the fundamental differences between MongoD
 ---
 
 
-# MongoDB Installation Guide 🚀
+# MongoDB Installation Guide 📚
 
 ## Features of MongoDB
 - Document Oriented
@@ -636,7 +636,7 @@ This structured comparison highlights the fundamental differences between MongoD
 - Scalability
 - Automatic Partitioning of Big Data
 
-## Ubuntu Installation 💻
+## Ubuntu Installation
 
 ### Prerequisites
 - Ubuntu operating system
@@ -678,7 +678,7 @@ $ sudo systemctl status mongodb
 $ sudo systemctl start mongodb
 ```
 
-## Windows Installation 💻
+## Windows Installation 
 
 ### Prerequisites
 - Windows operating system
@@ -728,7 +728,7 @@ mongod
    ```
    > ⚠️ Important: Keep mongod window open while using MongoDB
 
-### Testing Installation ✅
+### Testing Installation
 
 Create a test database and collection:
 ```javascript
@@ -755,7 +755,7 @@ db.student.insertOne({Akshay:500})
    - Check server status regularly
    - Use proper shutdown procedures
 
-## Troubleshooting 🔧
+## Troubleshooting
 
 1. **Ubuntu Issues:**
    - If service doesn't start, check logs: `/var/log/mongodb/`
