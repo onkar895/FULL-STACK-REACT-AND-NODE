@@ -1,0 +1,18 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "> A comprehensive guide to understanding, installing, and working with MongoDB - perfect for beginners and intermediate users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.9"
+  }
+}

@@ -4,38 +4,38 @@
 
 ## Table of Contents:
 
-1. [Understanding Database Types: Relational vs NoSQL 🚀](#understanding-database-types-relational-vs-nosql)
+1. [Understanding Database Types: Relational vs NoSQL](#understanding-database-types-relational-vs-nosql)
    - [Introduction to Database Types](#introduction-to-database-types)
    - [Detailed Comparison](#detailed-comparison)
    - [When to Use Each Type](#when-to-use-each-type)
 
-2. [NoSQL Cloud Database Services 💻](#nosql-cloud-database-services)
+2. [NoSQL Cloud Database Services](#nosql-cloud-database-services)
    - [Types of NoSQL databases](#types-of-nosql-databases)
    - [Difference between NoSQL Databases and SQL Databases](#difference-between-nosql-databases-and-sql-databases)
 
-3. [Understanding JSON and BSON: ✅](#understanding-json-and-bson)
+3. [Understanding JSON and BSON:](#understanding-json-and-bson)
    - [What is JSON?](#what-is-json)
    - [What is BSON?](#what-is-bson)
    - [JSON vs BSON Comparison](#json-vs-bson-comparison)
    - [How MongoDB Uses JSON and BSON](#how-mongodb-uses-json-and-bson)
 
-4. [Introduction to MongoDB 🚀](#introduction-to-mongodb)
+4. [Introduction to MongoDB](#introduction-to-mongodb)
    - [What is MongoDB](#what-is-mongodb)
    - [MongoDB vs Traditional Databases (RDBMS)](#mongodb-vs-traditional-databases-rdbms)
    - [When to Use MongoDB?](#when-to-use-mongodb)
 
-5. [MongoDB: Getting Started Guide 📚](#mongodb-getting-started-guide)
+5. [MongoDB: Getting Started Guide](#mongodb-getting-started-guide)
    - [Installation and Setup](#installation-and-setup)
    - [Starting MongoDB](#starting-mongodb)
    - [Creating and Importing Data](#creating-and-importing-data)
    - [Querying Data](#querying-data)
 
-6. [MongoDB vs MySQL: A Comprehensive Comparison 🚀](#mongodb-vs-mysql-a-comprehensive-comparison)
+6. [MongoDB vs MySQL: A Comprehensive Comparison](#mongodb-vs-mysql-a-comprehensive-comparison)
    - [What are MongoDB and MySQL?](#what-are-mongodb-and-mysql)
    - [Key Features](#key-features)
    - [Terminology Differences](#terminology-differences)
 
-7.   [MongoDB Installation Guide 📚](#mongodb-installation-guide)
+7.   [MongoDB Installation Guide](#mongodb-installation-guide)
    - [Ubuntu Installation](#ubuntu-installation)
    - [Windows Installation](#windows-installation)
    - [Testing Installation](#testing-installation)
