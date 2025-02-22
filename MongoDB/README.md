@@ -874,7 +874,7 @@ This will start your application, and it should successfully connect to your Mon
 
 > Mongoose is an **Object Data Modeling** (ODM) library for MongoDB. It provides a schema-based solution with default values and schema validations which are later mapped to a MongoDB document.
 
-[Mongoose Tutorial](./assets/Mangoose-Tutorial.png)
+![Mongoose Tutorial](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/lcrz9jrxgzux8tv7kzvd.png)
 
 ## Why Choose Mongoose?
 - Provides a straight-forward, schema-based solution to model your application data
@@ -887,12 +887,14 @@ This will start your application, and it should successfully connect to your Mon
 ## Installation and Setup for Mongoose:
 
 ### Step 1: Install Mongoose
+
 Install the mongoose package using npm:
 ```bash
 npm install mongoose
 ```
 
 ### Step 2: Import Mongoose
+
 Import the mongoose module in your file:
 ```javascript
 const mongoose = require('mongoose');
@@ -930,7 +932,7 @@ module.exports = {
 
 > Database: Initially we have two collections of users and posts in our database GFG. And each collection contains a single document.
 
-[Database Connection](./assets/1.png)
+![Database Connection](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dvvn31yaq7fwwc7r7cct.png)
 
 Now We will perform the query to find all the posts without using populate() method. Create a folder and add the file main.js which is shown below:
 
@@ -980,7 +982,7 @@ node main.js
 
 Output: In the output, we can see that we get only ObjectId (_id field of user document) in postedBy field, and not the whole document.
 
-[Output](./assets//2.png)
+![Output](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oojp0f5gscgjnjyfks43.png)
 
 ## Important Points:
 
