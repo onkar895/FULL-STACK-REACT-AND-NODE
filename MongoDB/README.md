@@ -1,6 +1,10 @@
 # MongoDB: The Complete Guide 📚
 
-> A comprehensive guide to understanding, installing, and working with MongoDB - perfect for beginners and intermediate users.
+> A comprehensive guide to understanding, installing, and working with MongoDB and Mongoose - perfect for beginners and intermediate users.
+
+---
+---
+<br>
 
 ## Table of Contents:
 
@@ -35,22 +39,33 @@
    - [Key Features](#key-features)
    - [Terminology Differences](#terminology-differences)
 
-7.   [MongoDB Installation Guide](#mongodb-installation-guide)
+7. [MongoDB Installation Guide](#mongodb-installation-guide)
    - [Ubuntu Installation](#ubuntu-installation)
    - [Windows Installation](#windows-installation)
    - [Testing Installation](#testing-installation)
    - [Troubleshooting](#troubleshooting)
 
+8. [How to Connect MongoDB Database in a Node.js Application](#how-to-connect-mongodb-database-in-a-nodejs-application)
+   - [Introduction](#introduction)
+   - [Approach](#approach)
+
+9. [Mongoose Tutorial](#mongoose-tutorial)
+   - [Introduction to Mongoose](#introduction-to-mongoose)
+   - [Installation and Setup](#installation-and-setup)
+   - [Working with Schemas](#working-with-schemas)
+   - [Database Connection and Queries](#database-connection-and-queries)
+   - [Important Points](#important-points)
+   - [Common Issues and Troubleshooting](#common-issues-and-troubleshooting)
 
 ---
-
 ---
+<br>
 
 # Understanding Database Types: Relational vs NoSQL 🚀
 
 ## Introduction to Database Types:
 
-### Relational Database (RDBMS)
+### Relational Database (RDBMS):
 A Relational Database Management System (RDBMS) is the most traditional and widely used type of database. Proposed by E.F. Codd, it has these key characteristics:
 - Stores data in tables (rows and columns)
 - Each row represents a record
@@ -58,7 +73,7 @@ A Relational Database Management System (RDBMS) is the most traditional and wide
 - Uses SQL (Structured Query Language)
 - Perfect for applications where data structure is consistent
 
-### NoSQL Database
+### NoSQL Database:
 NoSQL (Non-SQL or Not Only SQL) databases are modern databases designed for specific data models. Key characteristics include:
 - Doesn't use traditional table structure
 - Flexible data organization
@@ -66,7 +81,7 @@ NoSQL (Non-SQL or Not Only SQL) databases are modern databases designed for spec
 - Supports various data formats
 - Ideal for rapidly changing data structures
 
-## Detailed Comparison
+## Detailed Comparison:
 
 ### 📊 Data Handling
 | Aspect | Relational Database | NoSQL Database |
@@ -75,7 +90,7 @@ NoSQL (Non-SQL or Not Only SQL) databases are modern databases designed for spec
 | Data Volume | Manages smaller data volumes | Handles large data volumes |
 | Data Type | Only structured data | All types of data (structured, semi-structured, unstructured) |
 | Data Sources | Data usually comes from one or few locations | Data comes from many locations |
-
+<br>
 ### 🔧 Technical Characteristics
 | Feature | Relational Database | NoSQL Database |
 |---------|-------------------|----------------|
@@ -84,14 +99,14 @@ NoSQL (Non-SQL or Not Only SQL) databases are modern databases designed for spec
 | Failure Points | Single point of failure | No single point of failure |
 | Transaction Location | Transactions written in one location | Transactions written in many locations |
 | ACID Compliance | Fully supports ACID properties | Generally doesn't support ACID properties |
-
+<br>
 ### 📝 Schema and Structure
 | Aspect | Relational Database | NoSQL Database |
 |--------|-------------------|----------------|
 | Schema | Mandatory schema | Schema not required |
 | Changes | Difficult to modify once defined | Easy and frequent changes possible |
 | Deployment | Vertical scaling (adding more power to existing hardware) | Horizontal scaling (adding more servers) |
-
+<br>
 ## When to Use Each Type?
 
 ### Use Relational Database When:
@@ -113,19 +128,19 @@ NoSQL (Non-SQL or Not Only SQL) databases are modern databases designed for spec
   - Real-time analytics
   - Big data applications
 
-## Key Terms Explained
+## Key Terms Explained:-
 
-### ACID Properties
+### ACID Properties:
 - **A**tomicity: All operations in a transaction succeed or none do
 - **C**onsistency: Database remains in a consistent state
 - **I**solation: Transactions don't interfere with each other
 - **D**urability: Completed transactions are permanent
 
-### Scalability
+### Scalability:
 - **Vertical Scaling**: Adding more power to existing machines
 - **Horizontal Scaling**: Adding more machines to handle load
 
-## Summary
+## Summary:
 - Relational databases are better for consistent, structured data with complex relationships
 - NoSQL databases excel at handling large volumes of varied data types
 - Choice depends on your specific needs:
@@ -142,7 +157,7 @@ Remember: There's no "better" option - each type has its ideal use cases!
 
 # NoSQL Cloud Database Services 💻
 
-#### NoSQL Cloud Database Services are cloud-based database services that provide scalable, high-performance, and cost-effective solutions for storing and retrieving data.
+> NoSQL Cloud Database Services are cloud-based database services that provide scalable, high-performance, and cost-effective solutions for storing and retrieving data.
 
 ## Some popular NoSQL Cloud Database Services include:
 - Amazon DynamoDB: A fully managed NoSQL database service offered by Amazon Web Services (AWS) that provides fast and predictable performance with seamless scalability.
@@ -150,7 +165,7 @@ Remember: There's no "better" option - each type has its ideal use cases!
 - Microsoft Azure Cosmos DB: A globally distributed, multi-model database service that provides high availability, low latency, and flexible data modeling.
 - MongoDB Atlas: A fully managed global cloud database service for MongoDB that provides automated backups, advanced security, and easy scalability.
 
-#### A NoSQL Cloud Database Services is a database that provides a means that helps to store and retrieve data is a NoSQL database. The term non-relational/non-SQL is initially referred to as NoSQL. Big data and web applications are some of its application that uses NoSQL databases in real-time and their utilization to boost with time. Sometimes, NoSQL databases are referred to as ‘Not only SQL’ because query languages related to SQL are also supported. Better command over accessibility, less difficult level scaling to bunches of devices, and design simplicity are included in a NoSQL database.
+> A NoSQL Cloud Database Services is a database that provides a means that helps to store and retrieve data is a NoSQL database. The term non-relational/non-SQL is initially referred to as NoSQL. Big data and web applications are some of its application that uses NoSQL databases in real-time and their utilization to boost with time. Sometimes, NoSQL databases are referred to as ‘Not only SQL’ because query languages related to SQL are also supported. Better command over accessibility, less difficult level scaling to bunches of devices, and design simplicity are included in a NoSQL database.
 
 ### Types of NoSQL databases:
 - Column-based
@@ -314,7 +329,7 @@ MongoDB is the most popular NoSQL database that stores data in flexible, JSON-li
   "type": "NoSQL"
 }
 ```
-
+<br>
 ## MongoDB vs Traditional Databases (RDBMS) 
 
 | Feature | Traditional Database (RDBMS) | MongoDB |
@@ -765,3 +780,273 @@ db.student.insertOne({Akshay:500})
    - If "C:/data/db/ not found" error appears, create the directory
    - Verify environment variables are set correctly
    - Ensure mongod is running before using mongo shell
+
+   ---
+
+# How to Connect MongoDB Database in a Node.js Application ✅
+
+## Introduction:
+
+Node.js is a built-in JavaScript Chrome platform to easily build faster and more flexible network applications. Node.js uses an event-driven, uninterrupted I/O model that makes it easy and efficient, suitable for real-time applications that use data that works on all distributed devices.
+
+Node.js is an open-source, cross-platform working environment for server-side development and communication applications. Node.js applications are JavaScript-enabled and can run during Node.js running time on OS X, Microsoft Windows, and Linux.
+
+Node.js also provides a rich library of various JavaScript modules that facilitate the development of web applications using Node.js on a large scale.
+
+## Approach:
+
+1. First, initialize the Node.js project in the particular folder in your machine.
+2. Install the node modules in the project folder.
+3. After this, create a connection to the database.
+
+## Steps to Connect MongoDB in a Node.js Application
+
+### Step 1: Create a Node.js Project and Initialize it
+
+Run the following command in your terminal:
+
+```sh
+npm init
+```
+
+### Step 2: Install the Required Node Modules
+
+Run the following command to install the necessary packages:
+
+```sh
+npm i express mongodb mongoose nodemon cors
+```
+
+### File Structure
+
+Your project folder structure should look like this:
+
+```
+project-folder/
+│── node_modules/
+│── package.json
+│── index.js
+```
+
+### Step 3: Create a Connection to the Database
+
+Inside the `index.js` file, add the following code to connect with your MongoDB database:
+
+```js
+// To connect with your MongoDB database
+const mongoose = require("mongoose");
+
+// Connecting to database
+mongoose.connect(
+  "mongodb://localhost:27017/",
+  {
+    dbName: "yourDB-name",
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) =>
+    err ? console.log(err) : console.log("Connected to yourDB-name database")
+);
+
+const express = require("express");
+const app = express();
+const cors = require("cors");
+
+console.log("App listen at port 5000");
+```
+
+### Step 4: Run the `index.js` File
+
+To run your Node.js application, use the following command:
+
+```sh
+nodemon index.js
+```
+
+This will start your application, and it should successfully connect to your MongoDB database.
+
+---
+
+# Mongoose Tutorial: 🚀
+
+## Introduction to Mongoose:
+
+> Mongoose is an **Object Data Modeling** (ODM) library for MongoDB. It provides a schema-based solution with default values and schema validations which are later mapped to a MongoDB document.
+
+[Mongoose Tutorial](./assets/Mangoose-Tutorial.png)
+
+## Why Choose Mongoose?
+- Provides a straight-forward, schema-based solution to model your application data
+- Includes built-in type casting, validation, query building, and business logic hooks
+- Manages relationships between data effectively
+- Offers schema validation out of the box
+- Translates between objects in code and their representation in MongoDB
+- Provides middleware for better control of asynchronous operations
+
+## Installation and Setup:
+
+### Step 1: Install Mongoose
+Install the mongoose package using npm:
+```bash
+npm install mongoose
+```
+
+### Step 2: Import Mongoose
+Import the mongoose module in your file:
+```javascript
+const mongoose = require('mongoose');
+```
+
+## Working with Schemas:
+
+### Basic Example
+> Here's an example demonstrating the relationship between two schemas - User and Post: In the postSchema we have one field postedBy which references a document from the User model.
+
+```javascript
+const userSchema = new mongoose.Schema({
+   username: String,
+   email: String
+});
+
+const postSchema = new mongoose.Schema({
+   title: String,
+   postedBy: {
+       type: mongoose.Schema.Types.ObjectId,
+       ref: "User"
+   }
+});
+
+const User = mongoose.model('User', userSchema);
+const Post = mongoose.model('Post', postSchema);
+
+module.exports = {
+   User,
+   Post
+};
+```
+
+## Database Connection and Queries:
+
+> Database: Initially we have two collections of users and posts in our database GFG. And each collection contains a single document.
+
+[Database Connection](./assets/1.png)
+
+Now We will perform the query to find all the posts without using populate() method. Create a folder and add the file main.js which is shown below:
+
+### Connecting to MongoDB
+Here's a complete example showing how to set up schemas and query the database:
+
+```javascript
+// Requiring module
+const mongoose = require('mongoose');
+
+// Connecting to database
+mongoose.connect('mongodb://localhost:27017/GFG', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
+
+// Creating Schemas
+const userSchema = new mongoose.Schema({
+    username: String,
+    email: String
+});
+
+const postSchema = new mongoose.Schema({
+    title: String,
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
+});
+
+// Creating models from userSchema and postSchema
+const User = mongoose.model('User', userSchema);
+const Post = mongoose.model('Post', postSchema);
+
+// Query to find and show all the posts
+Post.find()
+    .then(p => console.log(p))
+    .catch(error => console.log(error));
+```
+
+Run main.js using the below command :
+
+```sh
+node main.js
+```
+
+Output: In the output, we can see that we get only ObjectId (_id field of user document) in postedBy field, and not the whole document.
+
+[Output](./assets//2.png)
+
+## Important Points:
+
+### Schema Types
+Mongoose supports several SchemaTypes:
+- String
+- Number
+- Date
+- Buffer
+- Boolean
+- Mixed
+- ObjectId
+- Array
+- Decimal128
+- Map
+
+### Schema Validation
+You can add validation to your schemas:
+```javascript
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        minlength: 3
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: /.+\@.+\..+/
+    }
+});
+```
+
+### Population:
+> To get the complete user document instead of just the ObjectId, use the `populate()` method:
+```javascript
+Post.find().populate('postedBy')
+    .then(posts => console.log(posts))
+    .catch(error => console.log(error));
+```
+
+### Middleware (Hooks):
+> Mongoose provides middleware (pre and post hooks) for better control:
+```javascript
+userSchema.pre('save', function(next) {
+    .then(() => console.log("User Saved"))
+    next();
+});
+```
+
+## Best Practices
+1. Always handle database connection errors
+2. Use environment variables for database connection strings
+3. Create indexes for frequently queried fields
+4. Implement proper error handling
+5. Use schema validation to ensure data integrity
+
+## Running the Application
+Execute your application using Node.js:
+```bash
+node main.js
+```
+
+## Common Issues and Troubleshooting:
+- Connection issues: Ensure MongoDB is running and the connection string is correct
+- Deprecation warnings: Keep mongoose options updated according to the latest version
+- Schema validation errors: Check if your data matches the schema requirements
+- Population not working: Verify that the referenced model exists and the field names are correct
