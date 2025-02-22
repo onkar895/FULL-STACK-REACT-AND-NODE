@@ -45,10 +45,10 @@
 ---
 <br>
 
-## Introduction
+## Introduction:
 > The Internet serves as a vast repository of information, accessible through web servers and clients. This guide explores the fundamentals of web servers, HTTP protocols, and their practical applications.
 
-## Web Servers Fundamentals:
+## Web Servers Fundamentals:💻
 
 ### What is a Web Server?
 A web server is a computer program that serves web pages upon request from web clients (browsers like Chrome, Firefox, Safari). The term "web server" can refer to both:
@@ -92,6 +92,8 @@ The simple process consists of 4 steps, they are:
    > Receives server response
    > Renders content or displays error
 
+<br>
+
 ### Performance Metrics:
 Key metrics for web server performance:
 
@@ -101,6 +103,8 @@ Key metrics for web server performance:
 | Latency | Response time | Affects user experience |
 | Throughput | Data transfer rate | Indicates efficiency |
 | Concurrency | Simultaneous connections | Shows scalability |
+
+<br>
 
 ### Popular Web Servers
 1. **Apache HTTP Server** : It is the most popular web server available and is widely used. It is developed and maintained by Apache Software Foundation. The Software is produced under the Apache License, which makes it free and open source.  It is available for a variety of operating Systems- Windows, Mac OS X, Unix, Linux, Solaris, Novell Netware and FreeBSD. 
@@ -153,8 +157,9 @@ HTTP (Hypertext Transfer Protocol) is the foundation of data communication on th
 | PATCH | Partial update | Update |
 | DELETE | Remove resource | Delete |
 
+<br>
 
-## Setup and Installation:
+## Setup and Installation:✅
 
 Step 1: To start a NodeJS application, create a folder called RestAPI and run the following command.
 ```bash
@@ -169,9 +174,9 @@ npm install express body-parser mongoose
 Step 3: In your project directory, create a file called index.js.
 
 
-## Making HTTP Requests
+## Making HTTP Requests:📜
 
-### GET Request
+### GET Request:
 
 1. To make a GET request, paste the following URL in the Enter request URL text box of the postman. 
 ```sh
@@ -183,7 +188,7 @@ https://api.github.com/gists
 application/vnd.github.v3+json
 ```
 
-### POST Request
+### POST Request:
 
 Steps to make a POST request are:
 
@@ -212,7 +217,7 @@ application/vnd.github.v3+json
 
 10. Go to the authorization tab and choose the authorization type to Basic Auth. Type your GitHub username and generated access token in the username and password field, respectively.
 
-### PATCH Request
+### PATCH Request:
 
 Now we update the gist we just created. To make a PATCH request, follow the given steps:
 
@@ -239,7 +244,7 @@ application/vnd.github.v3+json
 5. Go to the authorization tab and choose the authorization type to Basic Auth. Type your GitHub username and generated access token in the username and password field, respectively.
 6. Click on the send button and refresh your gist to see the updated description.
 
-### DELETE Request
+### DELETE Request:
 
 1. Paste the following URL in the input field of the Postman.
 ```sh
