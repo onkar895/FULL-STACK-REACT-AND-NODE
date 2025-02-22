@@ -3,7 +3,6 @@
 > A comprehensive guide to understanding, installing, and working with MongoDB and Mongoose - perfect for beginners and intermediate users.
 
 ---
----
 <br>
 
 ## Table of Contents:
@@ -51,17 +50,17 @@
 
 9. [Mongoose Tutorial](#mongoose-tutorial)
    - [Introduction to Mongoose](#introduction-to-mongoose)
-   - [Installation and Setup](#installation-and-setup)
+   - [Installation and Setup for Mongoose](#installation-and-setup-for-mongoose)
    - [Working with Schemas](#working-with-schemas)
    - [Database Connection and Queries](#database-connection-and-queries)
    - [Important Points](#important-points)
    - [Common Issues and Troubleshooting](#common-issues-and-troubleshooting)
 
----
----
 <br>
+---
 
-# Understanding Database Types: Relational vs NoSQL 🚀
+
+# Understanding Database Types: Relational vs NoSQL🚀
 
 ## Introduction to Database Types:
 
@@ -90,7 +89,9 @@ NoSQL (Non-SQL or Not Only SQL) databases are modern databases designed for spec
 | Data Volume | Manages smaller data volumes | Handles large data volumes |
 | Data Type | Only structured data | All types of data (structured, semi-structured, unstructured) |
 | Data Sources | Data usually comes from one or few locations | Data comes from many locations |
+
 <br>
+
 ### 🔧 Technical Characteristics
 | Feature | Relational Database | NoSQL Database |
 |---------|-------------------|----------------|
@@ -155,7 +156,7 @@ Remember: There's no "better" option - each type has its ideal use cases!
 ---
 
 
-# NoSQL Cloud Database Services 💻
+# NoSQL Cloud Database Services💻
 
 > NoSQL Cloud Database Services are cloud-based database services that provide scalable, high-performance, and cost-effective solutions for storing and retrieving data.
 
@@ -184,7 +185,7 @@ Remember: There's no "better" option - each type has its ideal use cases!
 ---
 
 
-# Understanding JSON and BSON: ✅
+# Understanding JSON and BSON:✅
 
 **JSON is a widely used data interchange format popular across many applications and technology stacks. BSON, the binary representation of JSON, is primarily used internally by MongoDB for efficient storage and data traversal.**
 
@@ -315,7 +316,7 @@ You have several options:
 ---
 
 
-# Introduction to MongoDB 🚀
+# Introduction to MongoDB🚀
 
 ## What is MongoDB?
 MongoDB is the most popular NoSQL database that stores data in flexible, JSON-like documents. Unlike traditional databases, it doesn't require a fixed data structure, making it perfect for modern applications.
@@ -434,7 +435,7 @@ Remember: MongoDB shines when you need flexibility and scalability, but traditio
 ---
 
 
-# MongoDB: Getting Started Guide 📚
+# MongoDB: Getting Started Guide📚
 
 ## Basic Concepts 
 
@@ -589,7 +590,7 @@ db.employee_data.find(
 ---
 
 
-# MongoDB vs MySQL: A Comprehensive Comparison 🚀
+# MongoDB vs MySQL: A Comprehensive Comparison🚀
 
 ## What are MongoDB and MySQL?
 
@@ -642,7 +643,7 @@ This structured comparison highlights the fundamental differences between MongoD
 ---
 
 
-# MongoDB Installation Guide 📚
+# MongoDB Installation Guide📚
 
 ## Features of MongoDB
 - Document Oriented
@@ -783,7 +784,7 @@ db.student.insertOne({Akshay:500})
 
    ---
 
-# How to Connect MongoDB Database in a Node.js Application ✅
+# How to Connect MongoDB Database in a Node.js Application✅
 
 ## Introduction:
 
@@ -867,7 +868,7 @@ This will start your application, and it should successfully connect to your Mon
 
 ---
 
-# Mongoose Tutorial: 🚀
+# Mongoose Tutorial:🚀
 
 ## Introduction to Mongoose:
 
@@ -883,7 +884,7 @@ This will start your application, and it should successfully connect to your Mon
 - Translates between objects in code and their representation in MongoDB
 - Provides middleware for better control of asynchronous operations
 
-## Installation and Setup:
+## Installation and Setup for Mongoose:
 
 ### Step 1: Install Mongoose
 Install the mongoose package using npm:
