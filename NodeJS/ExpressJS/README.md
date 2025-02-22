@@ -1,4 +1,4 @@
-# Understanding the basics of web servers and HTTP requests 🌐
+# Understanding the basics of web servers and HTTP requests:🌐
 
 ---
 
@@ -6,26 +6,26 @@
 1. [Introduction](#introduction)
 
 2. [Web Servers Fundamentals](#web-servers-fundamentals)
-  - [What is a Web Server?](#what-is-a-web-server)
-  - [When to Use a Web Server](#when-to-use-a-web-server)
-  - [How do Web Servers Work](#how-do-web-servers-work)
-  - [Performance Metrics](#performance-metrics)
-  - [Popular Web Servers](#popular-web-servers)
+   - [What is a Web Server?](#what-is-a-web-server)
+   - [When to Use a Web Server](#when-to-use-a-web-server)
+   - [How do Web Servers Work](#how-do-web-servers-work)
+   - [Performance Metrics](#performance-metrics)
+   - [Popular Web Servers](#popular-web-servers)
 
 3. [HTTP Protocol](#http-protocol)
-  - [Understanding HTTP](#understanding-http)
-  - [HTTP Request Components](#http-request-components)
-  - [HTTP Response Components](#http-response-components)
+   - [Understanding HTTP](#understanding-http)
+   - [HTTP Request Components](#http-request-components)
+   - [HTTP Response Components](#http-response-components)
 
 4. [HTTP Methods in Detail](#http-methods-in-detail)
-  - [Common HTTP Methods](#common-http-methods)
-  - [Setup and Installation:](#setup-and-installation:)
-  - [Making HTTP Requests](#making-http-requests)
-    - [GET Request](#get-request)
-    - [POST Request](#post-request)
-    - [PATCH Request](#patch-request)
-    - [DELETE Request](#delete-request)
-  - [Best Practices and Security](#best-practices-and-security)
+   - [Common HTTP Methods](#common-http-methods)
+   - [Setup and Installation:](#setup-and-installation)
+   - [Making HTTP Requests](#making-http-requests)
+     - [GET Request](#get-request)
+     - [POST Request](#post-request)
+     - [PATCH Request](#patch-request)
+     - [DELETE Request](#delete-request)
+   - [Best Practices and Security](#best-practices-and-security)
 
 5. [What is Express?](#what-is-express)
 6. [Express.js and MEAN Stack](#expressjs-and-mean-stack)
@@ -46,9 +46,9 @@
 <br>
 
 ## Introduction
-The Internet serves as a vast repository of information, accessible through web servers and clients. This guide explores the fundamentals of web servers, HTTP protocols, and their practical applications.
+> The Internet serves as a vast repository of information, accessible through web servers and clients. This guide explores the fundamentals of web servers, HTTP protocols, and their practical applications.
 
-## Web Servers Fundamentals
+## Web Servers Fundamentals:
 
 ### What is a Web Server?
 A web server is a computer program that serves web pages upon request from web clients (browsers like Chrome, Firefox, Safari). The term "web server" can refer to both:

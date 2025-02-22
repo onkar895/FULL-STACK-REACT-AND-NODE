@@ -1,4 +1,4 @@
-# Node.js Developer's Guide: From Fundamentals to Web Applications :
+# Node.js Developer's Guide: From Fundamentals to Web Applications:💻
 
 ---
 
@@ -56,7 +56,7 @@
 <br>
 
 
-# Introduction to Node.js and its Features
+# Introduction to Node.js and its Features:🚀
 
 ## What is Node.js?
 
@@ -75,6 +75,8 @@
 - Highly popular, especially in Silicon Valley.
 - Opens up numerous career opportunities.
 
+<br>
+
 ## Difference between Node.js and JavaScript
 
 | S.No | JavaScript                                                           | Node.js                                                                |
@@ -87,7 +89,9 @@
 | 6    | Examples: RamdaJS, TypedJS.                                          | Examples: Express, Lodash (installed via npm).                         |
 | 7    | Uses Chrome’s V8 engine (C++).                                       | Written in C, C++, and JavaScript.                                     |
 
-## Features of Node.js
+<br>
+
+## Features of Node.js:📜
 
 ### 1. Non-blocking I/O Model
 
