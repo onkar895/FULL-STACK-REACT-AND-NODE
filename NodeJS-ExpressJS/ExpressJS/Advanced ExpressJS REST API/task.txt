@@ -1,0 +1,27 @@
+REST API- JSON
+
+1. GET METHOD: 
+On route /user I'll render the html document
+GET /users - HTML Document Render
+
+On route /api/user I'll list all the users in JSON, so that anybody like mobile devices also also able to access this data
+
+GET /api/users - List all users in JSON - Done
+
+Dynamic Path Parameters:
+GET /api/users/:id - Get the user with ID suppose 1 - Done
+GET /api/users/:id - Get the user with ID suppose 2 - Done
+.
+.
+.
+.
+GET /api/users/n - Get the user with ID n
+
+2.POST METHOD:
+POST /api/users - Create a new user
+
+3. PATCH METHOD:
+PATCH /api/users/:id - Edit the user with ID 1
+
+4. DELETE METHOD:
+DELETE /api/users/id - delete the user with ID 1
