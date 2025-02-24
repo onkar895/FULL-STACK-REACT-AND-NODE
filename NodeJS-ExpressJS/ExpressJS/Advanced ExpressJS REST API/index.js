@@ -33,14 +33,16 @@ app.post('/api/users', (req, res) => {
   const body = req.body
   console.log(body)  // created new user
 
+  const newUser = {...body, id: data.length + 1}
+
   // Pushing new user to the data array
-  data.push({...body, id: data.length + 1})  
+  data.push(newUser)  
   fs.writeFile('./MOCK_DATA.json', JSON.stringify(data), (err) => {
     if (err) {
       return res.status(500).json({ status: 'error', message: 'Failed to create user' });
     }
     return res.json({status: 'success', message: 'User created successfully', id: newUser.id});
-  });
+  }); 
 })
 
 // app.get('/api/users/:userId', (req, res) => {
@@ -80,10 +82,10 @@ app.route('/api/users/:userId')
   }
 
   const index = data.indexOf(user)
+  
   const body = req.body
   console.log(body)  
-  
-  // edited user
+
   const updatedUser = {...user, ...body}
   data[index] = updatedUser
 
