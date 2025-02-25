@@ -40,7 +40,7 @@
 
 9. [What is Middleware in Express.js](#what-is-middleware-in-express-js)
     - [Creating and Executing Middleware:](#creating-and-executing-middleware)
-    - [Setting Up Express app and sending a response to the server:](#setting-up-express-app-and-sending-a-response-to-the-server:)
+    - [Setting Up Express app and sending a response to the server:](#setting-up-express-app-and-sending-a-response-to-the-server)
    
 ---
 <br>
