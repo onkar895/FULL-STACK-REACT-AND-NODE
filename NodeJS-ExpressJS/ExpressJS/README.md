@@ -42,6 +42,7 @@
     - [Creating and Executing Middleware:](#creating-and-executing-middleware)
     - [Setting Up Express app and sending a response to the server:](#setting-up-express-app-and-sending-a-response-to-the-server)
     - [Parsing Middlewares](#parsing-middlewares)
+    - [Error Handling:](#error-handling)
    
 ---
 <br>
@@ -738,3 +739,61 @@ app.listen(3000, () => console.log('server started at port 3000'));
  - If the route is /secret only then the verifyToken middleware will be executed and if the token is something else instead of abc then it will return the 'Invalid token' message. 
  - If the token is not present then it will return the 'No token present' message. 
  - and If the token is abc then it will call the **next()** function and return the 'Sometime i use headphones in public so that i that i don't have to talk to anyone' message.
+
+
+---
+
+# Error Handling:
+
+> Error Handling refers to how Express catches and processes errors that occur both synchronously and asynchronously. Express comes with a default error handler so you don’t need to write your own to get started.
+
+### Catching Errors:
+- It’s important to ensure that Express catches all errors that occur while running route handlers and middleware.
+
+- Errors that occur in synchronous code inside route handlers and middleware require no extra work. If synchronous code throws an error, then Express will catch and process it. 
+For example:
+```js
+app.get('/', (req, res) => {
+  throw new Error('BROKEN') // Express will catch this on its own.
+})
+```
+
+- For errors returned from asynchronous functions invoked by route handlers and middleware, you must pass them to the next() function, where Express will catch and process them. 
+For example:
+```js
+app.get('/', (req, res, next) => {
+  fs.readFile('/file-does-not-exist', (err, data) => {
+    if (err) {
+      next(err) // Pass errors to Express.
+    } else {
+      res.send(data)
+    }
+  })
+})
+```
+
+### Writing error handlers:
+- Define error-handling middleware functions in the same way as other middleware functions, except error-handling functions have four arguments instead of three: (err, req, res, next). 
+For example:
+```js
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+```
+
+- You define error-handling middleware last, after other app.use() and routes calls; 
+For example:
+```js
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+app.use(bodyParser.json())
+app.use(methodOverride())
+app.use((err, req, res, next) => {
+  // logic
+})
+```
