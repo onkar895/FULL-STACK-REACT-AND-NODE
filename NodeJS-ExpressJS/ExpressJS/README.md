@@ -597,12 +597,30 @@ Output:
 
 ## Parsing Middlewares:
 
+> These middlewares are used to parse the incoming request data into a format that we can use in our application. It is nothing but the functions only. It is used to parse the request body.
+
+**app.use(express.json())** 
+ - The express.json() middleware is used to parse incoming JSON data.
+ - If the incoming data is the json data then it will pass the json data to the javascript object.
+
+**The express.urlencoded()**
+ - The express.urlencoded() middleware is used to parse incoming form data.
+ - If the incoming data is urlencoded data and it is extended as true, then it will pass the data to the javascript object.
+
+### Example 1:
+
 ```js
-// These middlewares are used to parse the incoming request data into a format that we can use in our application.
-// The express.json() middleware is used to parse incoming JSON data.
-app.use(express.json()) 
-// The express.urlencoded() middleware is used to parse incoming form data.
+const express = require('express');
+const app = express();
+
+app.use(express.json())  // for parsing application/json
 app.use(express.urlencoded({ extended: true })) 
+
+app.use((req, res, next) => {
+    res.send('Hijack by my app.use()');
+})
+//It will execute 'Hijack by my app.use()' first and then stop executing the code and it will not pass the control to the next middleware or route handler. That mean it will be stuck here and you will not get the data. 
+// For that, we need to call the next() function.
 
 // 1st Middleware
 app.use((req, res, next) => {
@@ -623,7 +641,7 @@ app.get('/api/users', (req, res) => {
   return res.json(data)
 })
 
-// 3rd middleware : Practical Example
+// 3rd middleware : Practical Example 1
 // Let's create the middleware, for every request and response by using the fs module, we will log the request and response to the file.
 app.use((req, res, next) => {
   console.log('3rd Middleware executed')
@@ -634,5 +652,89 @@ app.use((req, res, next) => {
     next()
   })
 })
+
+app.listen(3000, () => console.log('server started at port 3000'));
 ```
 
+### Example 2: Important
+
+```js
+const express = require('express');
+const app = express();
+
+app.use(express.json()) 
+app.use(express.urlencoded({ extended: true })) 
+
+app.use((req, res, next) => {
+  console.log('Middleware executed')
+  next()  // It will pass the control to the next middleware or route handler and you will get the data.
+})  
+
+app.use((req, res, next) => {
+  console.log('Inside my first middleware');
+  req.requestTime = Date.now();
+  req.username = 'Max'
+  next(); // Again, It will pass the control to the next middleware or route handler and you will get the data.
+  console.log('Inside my first middleware after calling next()'); // Control will get back here after executing the next middleware or route handler.
+});  
+
+app.use((req, res, next) => {
+  console.log('Inside my second middleware');
+  next();  // Again, It will pass the control to the next middleware or route handler and you will get the data.
+  console.log('Inside my second middleware after calling next()');  // Control will get back here after executing the next middleware or route handler.
+});
+
+app.get('/', (req, res, next) => {
+    const epoch = req.requestTime;
+    const date = new Date(epoch);
+    const username = req.username;
+    res.send(`<h1> Hello I'm ${username}, Hello from server : ${date.toLocaleString()}</h1>`)
+});
+
+app.listen(3000, () => console.log('server started at port 3000'));
+```
+**Output:**
+```
+Middleware executed
+Inside my first middleware
+Inside my second middleware
+Inside my second middleware after calling next()
+Inside my first middleware after calling next()
+```
+
+### Example 3: Practical Example
+
+#### Middleware passing as the argument: 
+```js
+const express = require('express');
+const app = express();
+
+app.use(express.json()) 
+app.use(express.urlencoded({ extended: true })) 
+
+// Assuming valid token value is: abc
+const verifyToken = (req, res, next) => {
+    const { token } = req.query;
+    if (!token) {
+        return res.send('No token present');
+    }
+
+    if (token !== 'abc') {
+        return res.send('Invalid token');
+    }
+
+    next();
+}
+
+app.get('/secret',verifyToken, (req, res) => {
+  res.send('Sometime i use headphones in public so that i that i dont have to talk to anyone');
+})
+
+app.listen(3000, () => console.log('server started at port 3000'));
+```
+**Explaination:**
+ - If we want to use the middleware only for the specific route then we can pass the middleware as the second argument to the route handler. We can also pass multiple middlewares as an argument.
+ - In the above example, we have passed the **verifyToken middleware** as the second argument to the route handler. So, this middleware will only be executed for the **/secret** route.
+ - If the route is /secret only then the verifyToken middleware will be executed and if the token is something else instead of abc then it will return the 'Invalid token' message. 
+ - If the token is not present then it will return the 'No token present' message. 
+ - and If the token is abc then it will call the **next()** function and return the 'Sometime i use headphones in public so that i that i don't have to talk to anyone' message.
