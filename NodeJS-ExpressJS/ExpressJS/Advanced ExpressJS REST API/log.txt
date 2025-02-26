@@ -1,0 +1,9 @@
+
+Date: 1740557489647, Method: GET, Path: /api/users 
+Date: 1740557538080, Method: GET, Path: /users 
+Date: 1740557559942, Method: POST, Path: /api/users/110 
+Date: 1740557565565, Method: PATCH, Path: /api/users/110 
+Date: 1740557619940, IP Address: ::1,  Method: GET, Path: /api/users 
+Date: 1740557632060, IP Address: ::1,  Method: GET, Path: /users 
+Date: 1740557635461, IP Address: ::1,  Method: PATCH, Path: /api/users/110 
+Date: 1740557642256, IP Address: ::1,  Method: GET, Path: /api/users 

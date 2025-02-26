@@ -41,6 +41,7 @@
 9. [What is Middleware in Express.js](#what-is-middleware-in-express-js)
     - [Creating and Executing Middleware:](#creating-and-executing-middleware)
     - [Setting Up Express app and sending a response to the server:](#setting-up-express-app-and-sending-a-response-to-the-server)
+    - [Parsing Middlewares](#parsing-middlewares)
    
 ---
 <br>
@@ -504,13 +505,24 @@ app.listen(PORT, (error) =>{
 
 # What is Middleware in Express.js ?
 
-Middleware functions have access to the request object and the response object and also the next function in the application request-response lifecycle.
+> Express is a routing and middleware web framework that has minimal functionality of its own: An Express application is essentially a series of middleware function calls.
+
+**Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.**
 
 ## Middlewares are used for:
-  - Change the request or response object.
   - Execute any program or code
+  - Make Changes to the request and the response object.
   - End the request-response lifecycle
-  - Call the next middleware.
+  - Call the next middleware function.
+
+If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+### An Express application can use the following types of middleware:
+  - Application-level middleware
+  - Router-level middleware
+  - Error-handling middleware
+  - Built-in middleware
+  - Third-party middleware
 
 ### The next() function:
 > The next() function is used to call the next middleware, succeeding the current middleware. It is very important to note that the middleware should either stop the current lifecycle or pass it on to the next middleware, otherwise the webpage will keep loading.
@@ -567,9 +579,7 @@ app.listen(port, () => {
 ## Creating  a Middleware:
 In the app.get() function, modify according to the following code.
 ```js
-app.get(
-  "/",
-  (req, res, next) => {
+app.get("/", (req, res, next) => {
     console.log("hello");
     next();
   },
@@ -583,3 +593,46 @@ app.get(
 ```
 Output:
 ![Middleware Output](https://media.geeksforgeeks.org/wp-content/uploads/20210927101344/Screenshot20210927101329.png)
+
+
+## Parsing Middlewares:
+
+```js
+// These middlewares are used to parse the incoming request data into a format that we can use in our application.
+// The express.json() middleware is used to parse incoming JSON data.
+app.use(express.json()) 
+// The express.urlencoded() middleware is used to parse incoming form data.
+app.use(express.urlencoded({ extended: true })) 
+
+// 1st Middleware
+app.use((req, res, next) => {
+  console.log('1st Middleware executed')
+  req.myUserName = "onkarkarale.dev"   // we can add any data to the request object and get it in the next middleware.
+  next()
+})
+
+// 2nd Middleware
+app.use((req, res, next) => {
+  console.log('2nd Middleware executed', req.myUserName) // so here, we can get the data from the request object which was added in the previous middleware 1.
+  // return res.end("HEYYY")
+  next()
+})
+
+app.get('/api/users', (req, res) => {
+  console.log('I am in get route', req.myUserName)  // I am in get route onkarkarale.dev
+  return res.json(data)
+})
+
+// 3rd middleware : Practical Example
+// Let's create the middleware, for every request and response by using the fs module, we will log the request and response to the file.
+app.use((req, res, next) => {
+  console.log('3rd Middleware executed')
+  fs.appendFile('log.txt', `Date: ${Date.now()}, IP Address: ${req.ip},  Method: ${req.method}, Path: ${req.path} \n`, (err) => {
+    if (err) {
+      console.log('Failed to log the request')
+    }
+    next()
+  })
+})
+```
+

@@ -7,10 +7,38 @@ const app = express()
 const PORT = 8000
 
 // Parsing Middlewares:  
+// These middlewares are used to parse the incoming request data into a format that we can use in our application.
+// The express.json() middleware is used to parse incoming JSON data.
 app.use(express.json()) 
-
+// The express.urlencoded() middleware is used to parse incoming form data.
 app.use(express.urlencoded({ extended: true })) 
 
+// 1st Middleware
+app.use((req, res, next) => {
+  console.log('1st Middleware executed')
+  req.myUserName = "onkarkarale.dev"   // we can add any data to the request object and get it in the next middleware.
+  next()
+})
+
+// 2nd Middleware
+app.use((req, res, next) => {
+  console.log('2nd Middleware executed', req.myUserName) // so here, we can get the data from the request object which was added in the previous middleware 1.
+  // return res.end("HEYYY")
+  next()
+})
+
+// 3rd middleware : Practical Example
+// Let's create the middleware, for every request and response by using the fs module, we will log the request and response to the file.
+app.use((req, res, next) => {
+  console.log('3rd Middleware executed')
+  fs.appendFile('log.txt', `Date: ${Date.now()}, IP Address: ${req.ip},  Method: ${req.method}, Path: ${req.path} \n`, (err) => {
+    if (err) {
+      console.log('Failed to log the request')
+    }
+    next()
+  })
+})
+ 
 // Routes
 // Sending a list of users as an HTML document.
 app.get('/users', (req, res) => {
