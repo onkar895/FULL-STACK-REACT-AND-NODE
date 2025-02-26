@@ -37,9 +37,20 @@ const User = mongoose.model('User', usersSchema)
 // 3. It will create a collection in the database with the pluralized name.
 // 4. For ex: if User -> users, if Movie -> movies etc.
 
+// Create a Document
 // By default, Mongoose adds an _id property to your schemas.
 const batman = new User({name: 'Batman', age: 30, year: 2021, rating: 4.5, isWatched: true})
 console.log(batman)
+
+// Update a Document
+User.updateOne({ name: "Batman" }, { $set: { rating: 4.0 } })
+  .then(result => console.log("Updated:", result))
+  .catch(err => console.error(err));
+
+  // Delete a Document
+  User.deleteOne({ name: "Batman" })
+  .then(result => console.log("Deleted:", result))
+  .catch(err => console.error(err));
 
 batman.save()
 .then(() => console.log("User Saved"))
